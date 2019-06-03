@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  nginx:
+    build: ./nginx
+    image: robbtraister/nginx
+
+  nginx-custom:
+    build:
+      context: ./nginx
+      dockerfile: custom.Dockerfile
+    image: robbtraister/nginx-custom
+
+  nodejs:
+    build: ./nodejs
+    image: robbtraister/nodejs
+
+  python2:
+    build: ./python2
+    image: robbtraister/python2
+
+  python3:
+    build: ./python3
+    image: robbtraister/python3
