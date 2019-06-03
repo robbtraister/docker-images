@@ -15,6 +15,12 @@ services:
     build: ./nodejs
     image: robbtraister/nodejs:${VERSION:-latest}
 
+  nodejs-prod:
+    build:
+      context: ./nodejs
+      dockerfile: production.Dockerfile
+    image: robbtraister/nodejs-prod:${VERSION:-latest}
+
   python2:
     build: ./python2
     image: robbtraister/python2:${VERSION:-latest}

@@ -1,1 +1,1 @@
-FROM robbtraister/nodejs
+FROM robbtraister/nodejs-prod

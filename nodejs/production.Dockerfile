@@ -3,12 +3,10 @@ FROM alpine
 RUN apk update && \
     apk upgrade && \
     apk add --no-cache --update \
-            nodejs-npm \
+            nodejs \
             && \
     rm -rf /var/cache/apk/* && \
-    npm i -g npm && \
-    node -v && \
-    npm -v
+    node -v
 
 ARG USER=nodejs
 ENV USER=${USER}
@@ -22,13 +20,17 @@ WORKDIR /opt/${PROJECT}
 
 ENTRYPOINT ["node"]
 
-ONBUILD ENTRYPOINT ["npm", "run"]
-ONBUILD CMD ["start"]
+ONBUILD CMD ["."]
 
 ONBUILD COPY package*.json ./
 ONBUILD RUN \
-            npm install && \
-            npm cache clean --force
+            apk add --no-cache --update \
+                    npm \
+                    && \
+            npm install --production && \
+            npm cache clean --force && \
+            apk del npm && \
+            rm -rf /var/cache/apk/*
 ONBUILD COPY . ./
 
 ONBUILD RUN \
