@@ -3,22 +3,22 @@ version: '3'
 services:
   nginx:
     build: ./nginx
-    image: robbtraister/nginx
+    image: robbtraister/nginx:${VERSION:-latest}
 
   nginx-custom:
     build:
       context: ./nginx
       dockerfile: custom.Dockerfile
-    image: robbtraister/nginx-custom
+    image: robbtraister/nginx-custom:${VERSION:-latest}
 
   nodejs:
     build: ./nodejs
-    image: robbtraister/nodejs
+    image: robbtraister/nodejs:${VERSION:-latest}
 
   python2:
     build: ./python2
-    image: robbtraister/python2
+    image: robbtraister/python2:${VERSION:-latest}
 
   python3:
     build: ./python3
-    image: robbtraister/python3
+    image: robbtraister/python3:${VERSION:-latest}

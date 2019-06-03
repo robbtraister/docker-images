@@ -1,0 +1,20 @@
+{
+  "name": "docker-images",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "version": "VERSION=$(node -p 'require(\"./package.json\").version') docker-compose build --pull"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robbtraister/docker-images.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robbtraister/docker-images/issues"
+  },
+  "homepage": "https://github.com/robbtraister/docker-images#readme"
+}
